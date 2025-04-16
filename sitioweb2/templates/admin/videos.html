@@ -1,0 +1,182 @@
+{% include 'admin/cabesera.html' %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            width: 100%;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .upload-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .file-input {
+            margin-bottom: 20px;
+        }
+        .file-input input[type="file"] {
+            display: none;
+        }
+        .file-input label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .file-input label:hover {
+            background-color: #0056b3;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        .video-preview {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .video-preview video {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .file-list {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .file-list p {
+            margin: 5px 0;
+            color: #555;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Biblioteca</h1>
+    </header>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Libros</a>
+        <a href="#">Chat</a>
+        <a href="#">Documentos</a>
+        <a href="#">Trabajos</a>
+        <a href="#">Videos</a>
+        <a href="#">Carrera</a>
+        <a href="#">Sitio web</a>
+    </nav>
+    <div class="upload-container">
+        <h2>Subir Videos</h2>
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+            <div class="file-input">
+                <input type="file" name="video" id="video" accept=".mp4,.avi,.mov,.mkv" required>
+                <label for="video">Seleccionar video</label>
+            </div>
+            <button type="submit" class="submit-btn">Subir</button>
+        </form>
+        <div class="video-preview" id="videoPreview">
+            <!-- Aquí se mostrará la vista previa del video -->
+        </div>
+        <div class="file-list" id="fileList">
+            <p>Archivo seleccionado:</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 Biblioteca. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Mostrar vista previa del video seleccionado
+        document.getElementById('video').addEventListener('change', function (e) {
+            const videoPreview = document.getElementById('videoPreview');
+            const fileList = document.getElementById('fileList');
+            videoPreview.innerHTML = ''; // Limpiar vista previa anterior
+            fileList.innerHTML = '<p>Archivo seleccionado:</p>'; // Limpiar lista anterior
+
+            const file = e.target.files[0];
+            if (file) {
+                // Mostrar el nombre del archivo
+                const fileName = document.createElement('p');
+                fileName.textContent = file.name;
+                fileList.appendChild(fileName);
+
+                // Mostrar la vista previa del video
+                if (file.type.startsWith('video/')) {
+                    const video = document.createElement('video');
+                    video.controls = true;
+                    video.src = URL.createObjectURL(file);
+                    video.style.maxWidth = '100%';
+                    videoPreview.appendChild(video);
+                }
+            }
+        });
+
+        // Validar el formulario antes de enviar
+        document.getElementById('uploadForm').addEventListener('submit', function (e) {
+            const file = document.getElementById('video').files[0];
+            if (!file) {
+                e.preventDefault();
+                alert('Por favor, selecciona un video.');
+            }
+        });
+    </script>
+</body>
+</html>
+
+{% include 'admin/pie.html' %}
