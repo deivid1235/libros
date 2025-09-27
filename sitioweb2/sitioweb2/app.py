@@ -163,34 +163,3 @@ def obtener_mensajes():
 def enviar_mensaje():
     data = request.json
     remitente = data.get('remitente')
-    mensaje = data.get('mensaje')
-
-    if not remitente or not mensaje:
-        return jsonify({'error': 'Faltan datos'}), 400
-
-    nuevo_mensaje = Mensaje(remitente=remitente, mensaje=mensaje)
-    db.session.add(nuevo_mensaje)
-    db.session.commit()
-
-    return jsonify({'status': 'success'})
-
-# Otras rutas de administración
-@app.route('/admin/trabajos')
-def admin_trabajos():
-    if not session.get('logged_in'):
-        return redirect('/admin/login')
-    return render_template('admin/trabajos.html')
-
-@app.route('/admin/videos')
-def admin_videos():
-    if not session.get('logged_in'):
-        return redirect('/admin/login')
-    return render_template('admin/videos.html')
-
-@app.route('/admin/cerrar')
-def admin_cerrar():
-    session.pop('logged_in', None)  # Elimina la sesión
-    return redirect('/admin/login')  # Redirige al login
-
-if __name__ == '__main__':
-    app.run(debug=True)
