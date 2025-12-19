@@ -1,0 +1,111 @@
+{% include 'admin/cabesera.html' %}
+
+<div class="container mt-5">
+
+    <!-- BIENVENIDA -->
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">👋 Bienvenid@ al Administrador del Sitio</h2>
+        <p class="text-muted">Panel de control general de la Biblioteca Virtual</p>
+    </div>
+
+    <!-- PERFIL ADMIN -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-4 text-center">
+            <img src="https://www.redeweb.com/wp-content/uploads/2021/03/software-1.jpg"
+                 alt="Administrador"
+                 class="img-fluid rounded-circle shadow"
+                 style="width: 200px; height: 200px; object-fit: cover;">
+            <h5 class="mt-3">Administrador</h5>
+            <span class="badge bg-success">Activo</span>
+        </div>
+
+        <div class="col-md-8">
+            <h3>Gestión de la Plataforma</h3>
+            <p>
+                Desde este panel puedes administrar todos los recursos del sistema:
+                libros, usuarios, mensajes y contenido general del sitio web.
+            </p>
+            <p>
+                Usa las herramientas disponibles para mantener la biblioteca
+                organizada, actualizada y segura para los usuarios.
+            </p>
+        </div>
+    </div>
+
+    <!-- TARJETAS DE RESUMEN -->
+    <div class="row text-center mb-5">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h1>📚</h1>
+                    <h5 class="card-title">Libros</h5>
+                    <p class="text-muted">Gestiona todo el contenido</p>
+                    <a href="/admin/libros" class="btn btn-primary btn-sm">Ver libros</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h1>💬</h1>
+                    <h5 class="card-title">Mensajes</h5>
+                    <p class="text-muted">Chat con usuarios</p>
+                    <a href="/admin/chat" class="btn btn-success btn-sm">Ver chat</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h1>👥</h1>
+                    <h5 class="card-title">Usuarios</h5>
+                    <p class="text-muted">Control de accesos</p>
+                    <a href="#" class="btn btn-warning btn-sm">Gestionar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h1>⚙️</h1>
+                    <h5 class="card-title">Configuración</h5>
+                    <p class="text-muted">Ajustes del sistema</p>
+                    <a href="#" class="btn btn-dark btn-sm">Configurar</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SECCIÓN INFORMACIÓN -->
+    <div class="row mb-5">
+        <div class="col-md-6">
+            <div class="p-4 bg-black rounded shadow-sm">
+                <h4>📊 Estado del Sistema</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Servidor: Operativo</li>
+                    <li class="list-group-item">Base de datos: Conectada</li>
+                    <li class="list-group-item">Última actualización: Hoy</li>
+                    <li class="list-group-item">Usuarios activos: En línea</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="p-4 bg-black rounded shadow-sm">
+                <h4>📌 Recomendaciones</h4>
+                <p class="mb-1">✔ Revisa los mensajes del chat</p>
+                <p class="mb-1">✔ Mantén actualizados los libros</p>
+                <p class="mb-1">✔ Verifica enlaces de descarga</p>
+                <p class="mb-1">✔ Realiza copias de seguridad</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% include 'admin/pie.html' %}

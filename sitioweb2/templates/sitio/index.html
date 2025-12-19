@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Biblioteca Virtual</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- BOOTSTRAP -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+/* ===== FONDO TREND ===== */
+body {
+    background: repeating-linear-gradient(
+        0deg,
+        #0b0014,
+        #0b0014 2px,
+        #12001f 4px,
+        #12001f 6px
+    );
+    color: #fff;
+}
+
+/* ===== HERO ===== */
+.hero-white {
+    background: transparent;
+}
+
+/* ===== TITULO NEÓN ===== */
+.hero-white h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: 8px;
+    background: linear-gradient(90deg, #00e5ff, #ff4fd8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow:
+        0 0 10px rgba(0,229,255,.9),
+        0 0 30px rgba(0,229,255,.6),
+        0 0 60px rgba(255,79,216,.9);
+}
+
+/* ===== TEXTO ===== */
+.hero-white p,
+main p,
+main h2 {
+    color: #e0d7ff !important;
+    text-shadow: 0 0 10px rgba(200,150,255,.6);
+}
+
+/* ===== BOTÓN ===== */
+.btn-primary {
+    background: linear-gradient(90deg, #00e5ff, #ff4fd8);
+    border: none;
+    box-shadow:
+        0 0 15px #00e5ff,
+        0 0 30px #ff4fd8;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 30px #00e5ff,
+        0 0 60px #ff4fd8;
+}
+
+/* ===== CARDS ===== */
+.card-bright {
+    background: rgba(15, 0, 30, 0.85);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 0 20px rgba(0,229,255,0.2),
+        0 0 40px rgba(255,79,216,0.2);
+    transition: 0.3s;
+}
+
+.card-bright:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 0 30px rgba(0,229,255,0.6),
+        0 0 60px rgba(255,79,216,0.6);
+}
+
+/* ===== ICONOS ===== */
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 26px;
+    box-shadow:
+        0 0 15px currentColor,
+        0 0 30px currentColor;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero-white py-5">
+    <div class="container text-center py-5">
+        <h1>Biblioteca Virtual</h1>
+        <p class="lead fs-4 mb-4">
+            Accede a libros, conocimiento y recursos educativos
+        </p>
+        <a href="/libros" class="btn btn-primary btn-lg px-5">
+            📚 Ver Libros
+        </a>
+    </div>
+</section>
+
+<!-- CONTENIDO -->
+<main class="container my-5">
+
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Descubre todo lo que ofrecemos</h2>
+        <p class="fs-5">
+            Una experiencia moderna y profesional
+        </p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card h-100 card-bright text-center">
+                <img src="https://okhosting.com/wp-content/uploads/Software.jpg" class="card-img-top">
+                <div class="card-body">
+                    <div class="icon-circle text-info mb-3">🔍</div>
+                    <h5 class="fw-bold">Explora</h5>
+                    <p>Navega fácilmente entre categorías.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 card-bright text-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTALJVzIfUhBMtwVOkKFgcTPqyH0PKIqg0rfA&s" class="card-img-top">
+                <div class="card-body">
+                    <div class="icon-circle text-success mb-3">📘</div>
+                    <h5 class="fw-bold">Aprende</h5>
+                    <p>Mejora tus habilidades.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card h-100 card-bright text-center">
+                <img src="https://www.radiopanamericana.com/wp-content/uploads/2024/03/2019-01-08_0-1546965634.jpg" class="card-img-top">
+                <div class="card-body">
+                    <div class="icon-circle text-warning mb-3">📖</div>
+                    <h5 class="fw-bold">Disfruta</h5>
+                    <p>Historias fascinantes.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+</body>
+</html>
